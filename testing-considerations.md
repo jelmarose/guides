@@ -2,6 +2,13 @@
 
 ## Frontend
 
+### Responsiveness
+Is your site mobile friendly? If possible, develop for mobile first then larger screens later on.
+
+### Character limit and input overflow
+
+Components that accept user input should have character limits, especially if the input will be displayed in the screen in another component. Pasting the entire *lorem ipsum* will break the UI unless it has proper catchers for long text.
+
 ### Sanitizing user input
 
 Any user input without proper validation can be used to execute SQL injection.
