@@ -1,2 +1,1 @@
-1. Angular UI
-2. Angular Unit Testing
+Collection of stuff I learned on the job.
