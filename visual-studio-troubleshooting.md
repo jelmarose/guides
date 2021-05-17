@@ -1,4 +1,4 @@
-### Clean Solution fails
+### Clean Solution fails/Unable to resolve the .NET SDK version as specified in the global.json 
 
 1. Run on cmd: ``dotnet --list-sdks`` then take note of the largest number of version.
 2. Open the ``global.json`` file on the same folder as the .sln and change sdk version to the same number from step 1.
