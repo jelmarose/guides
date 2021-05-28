@@ -9,3 +9,15 @@ Trade off is that you can't debug on the browser.
 ### Add new component in a folder with two modules
 
 ```ng g c <new component name> --module <name of module>```
+
+### Remove ```experimentalDecorators``` warning
+
+On the ``tsconfig.app.json`` add ``experimentalDecorator: true`` on the ``compilerOptions``
+
+```json
+"compilerOptions": {
+    "skipLibCheck": true,
+    "experimentalDecorators": true
+  },
+
+```
