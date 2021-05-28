@@ -21,3 +21,7 @@ On the ``tsconfig.app.json`` add ``experimentalDecorator: true`` on the ``compil
   },
 
 ```
+
+Restart your code editor.
+
+If you're using VS Code, go to File > Preferences > Settings. Search for ``experimental`` and check the box of **JS/TS > Implicit Project Config: Experimental Decorators**
