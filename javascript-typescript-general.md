@@ -1,4 +1,4 @@
-// Remove last character on a string
+Remove last character on a string
 
 ```javascript
 let text = "Option 1,"
