@@ -11,9 +11,9 @@ Run ``ng g s records-management`` on cmd.
 
 Import the following on the .service file:
 
-``javascript
+```javascript
 import { Observable, Subject } from 'rxjs';
-``
+```
 
 Let's say we want to keep track of the record ID the user viewed previously. We'll initialize a private Subject for it.
 
