@@ -11,7 +11,7 @@ Run ``ng g s records-management`` on cmd.
 
 Import the following on the .service file:
 
-``typescript
+``javascript
 import { Observable, Subject } from 'rxjs';
 ``
 
