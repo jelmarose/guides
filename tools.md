@@ -1,5 +1,11 @@
 # Tools - Infosec Commonplace
 
+## E
+
+[ECPI Get Certified](https://getcertified.ecpi.edu/) - Certification references for CompTIA and Cisco exams.
+[ECPI - Network+ Acronyms (PDF)](https://getcertified.ecpi.edu/wp-content/uploads/2018/03/CompTIA-NetworkPlus-Objectives-Acronyms.pdf)
+[ECPI - Security+ Acronyms (PDF)](https://getcertified.ecpi.edu/wp-content/uploads/2021/06/CompTIA-SecurityPlus601-Acronyms.pdf)
+
 ## F
 
 [FreeBSD](https://www.freebsd.org/) - open source Unix-like operating system
