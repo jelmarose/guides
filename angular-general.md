@@ -46,3 +46,13 @@ When importing, use the following code:
 instead of
 
 ```import * as items from '../path/to/json'```
+
+### Angular 12: Turn off strict initialization 
+
+Error when initializing a variable with no value, e.g. ``@Input() test: ITest;``
+
+```json
+"compilerOptions": {  
+    "strictPropertyInitialization": false,
+  },
+```
