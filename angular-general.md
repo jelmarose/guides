@@ -25,3 +25,24 @@ On the ``tsconfig.app.json`` add ``experimentalDecorator: true`` on the ``compil
 Restart your code editor.
 
 If you're using VS Code, go to File > Preferences > Settings. Search for ``experimental`` and check the box of **JS/TS > Implicit Project Config: Experimental Decorators**
+
+### Angular 12: Error when importing local JSON
+
+``Should not import the named export 'items' (imported as 'items') from default-exporting module (only default export is available soon)``
+
+On ``tsconfig.json`` add the following on the ``compilerOptions``
+
+```json
+"compilerOptions": {
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true 
+  },
+```
+
+When importing, use the following code:
+
+```import items from '../path/to/json'```
+
+instead of
+
+```import * as items from '../path/to/json'```
