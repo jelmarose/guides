@@ -1,0 +1,2 @@
+- ``dir`` - lists all the directories found in the current folder
+- ``start .`` - opens the folder in File Explorer
