@@ -8,8 +8,8 @@
 
 Git global setup
 ```
-git config --global user.name "Jelma Rose De Vera"
-git config --global user.email "jelma@risingtide.ph"
+git config --global user.name "Your Name"
+git config --global user.email "you@email.com"
 ```
 
 Create a new repository
@@ -40,4 +40,6 @@ git remote add origin <link>
 git push -u origin --all
 git push -u origin --tags
 ```
-
+-------------------------
+Set git trace to verbose
+```set GIT_CURL_VERBOSE=1 set GIT_TRACE=1 ```
