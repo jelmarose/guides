@@ -56,3 +56,7 @@ Error when initializing a variable with no value, e.g. ``@Input() test: ITest;``
     "strictPropertyInitialization": false,
   },
 ```
+
+### Angular 12: Error: Content and Map of this Source is not available (only size() is supported)
+
+Delete the ```.angular``` folder, run ```npm install``` and run as normal.
