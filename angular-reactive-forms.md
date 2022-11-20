@@ -1,3 +1,35 @@
+## Getting form control from inside a form group as short hand
+
+```typescript
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
+
+@Component({
+  selector: 'app-component',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+
+  constructor(
+    private fb: FormBuilder
+  ){ }
+
+  signUpForm: FormGroup = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(12)]]
+  });
+
+  // Now you can use this.email to refer to the email control in this.signUpForm 
+  // anywhere in the component (even in the HTML side)
+  get email(){
+    return this.signupForm.controls['email'] as FormControl;
+  }
+
+}
+
+```
+
+
 ## Dealing with delay in valueChanges observable
 
 ```typescript
