@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
     // this is important as sometimes valueChanges() returns the previous value 
     // which we don't want especially if we're doing real time validation 
     // (e.g. password - confirm password comparison)
-    this.password.valueChanges().pipe(pairwise()).subscribe(([prev, next]: [string, string]) => { 
+    this.password.valueChanges.pipe(pairwise()).subscribe(([prev, next]: [string, string]) => { 
       if(next == 'some important value'){
         // do something
       }
