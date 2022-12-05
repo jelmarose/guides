@@ -48,5 +48,6 @@
 ```
 4. Run the new build script with ```npm run-script build-iis```
 5. Copy the build files (located in YourProjectName/dist) in your server.
-6. Either create a new website or use the default website, right click and click Add Application
+6. Either create a new website or use the default website, right click and click Add Application, name it MyApp
 7. Point the source files to the build files location
+8. Start the website and browse
