@@ -1,6 +1,6 @@
 ## Infinite Loading for Search Results
 
-HTML
+**HTML**
 ```
 <div fxLayout="row" fxLayoutGap="10px" *ngFor="let item of searchResults">
   <span>{{item.name}}</span>
@@ -8,7 +8,7 @@ HTML
 </div>
 ```
 
-TS
+**TS**
 ```typescript
 import { Component, HostListener, OnInit } from '@angular/core';
 import { AppService } from '../services/app.service';
