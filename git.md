@@ -43,3 +43,10 @@ git push -u origin --tags
 -------------------------
 Set git trace to verbose
 ```set GIT_CURL_VERBOSE=1 set GIT_TRACE=1 ```
+
+---------------------------------
+Get all branches with latest commits
+```git branch -v --sort=committerdate```
+
+To include remote branches:
+```git branch -av --sort=committerdate```
