@@ -69,3 +69,41 @@ export class AppComponent implements OnInit {
 
 }
 ```
+
+## Preventing other characters except numbers in input field
+
+```typescript
+import { FormControl } from '@angular/forms'
+import { pairwise } from 'rxjs/operators';
+
+@Component({
+  selector: 'app-component',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+
+  // This is the control we will listen for changes.
+  contactNumber = new FormControl('');
+  
+  constructor() { }
+  
+  ngOnInit(){
+    this.listenForChanges();
+  }
+  
+  listenForChanges(){
+    // regex pattern for detecting numbers
+    const pattern = /^[0-9]*$/;
+    this.contactNumber.valueChanges.pipe(pairwise()).subscribe(([prev, next]: [string, string]) => { 
+      if(!pattern.test(next)){
+        // this will keep the numbers only in the string and remove all the non-numerical characters entered
+        let cleanedString = next.replace(/[^0-9]/g, "");
+        this.contactNumber.setValue(cleanedString);
+      }
+    });
+  }
+  
+
+}
+```
