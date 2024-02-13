@@ -1,4 +1,4 @@
-```sass
+```scss
 $purple: #4f2d7f;
 $violet: #9581b2;
 $teal: #6dbfb8;
