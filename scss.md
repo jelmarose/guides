@@ -84,4 +84,45 @@ $spaces: 2, 4, 5, 6, 8, 10, 50;
     padding: #{$space}#{"%"};
   }
 }
+
+
+// Tailwind-esque CSS
+
+.flex{
+    display: flex;
+}
+
+.flex-row{
+    flex-direction: row;
+}
+
+.flex-row-reverse{
+    flex-direction: row-reverse;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.flex-col-reverse{
+    flex-direction: column-reverse;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.flex-wrap-reverse{
+    flex-wrap: wrap-reverse;
+}
+
+.flex-nowrap{
+    flex-wrap: nowrap;
+}
+
+.gap-10px{
+    gap: 10px;
+}
+
+
 ```
