@@ -126,9 +126,13 @@ There are two wildcards often used with the LIKE/ILIKE operator:
 SELECT * FROM profiles
 WHERE firstName LIKE 'Qing%';
 
--- will return all userId from USER01 to USER09
+-- will return all firstName ending with n
 SELECT * FROM profiles
-WHERE userId ILIKE 'user0_';
+WHERE firstName LIKE '%n';
+
+-- will return all userId from DISCIPLE01 to DISCIPLE04
+SELECT * FROM profiles
+WHERE userId ILIKE 'disciple0_';
 ```
 
 ### IN and BETWEEN
@@ -137,12 +141,21 @@ WHERE userId ILIKE 'user0_';
 SELECT * FROM profiles
 WHERE firstName IN ('Binghe', 'Yingying', 'Fan');
 
+-- will return data for Luo Binghe, Ning Yingying, Ming Fan and Liu Mingyan
+SELECT * FROM profiles
+WHERE firstName IN (SELECT firstName FROM profiles WHERE userID LIKE 'DISCIPLE0_'); 
+
 -- will return data for Shang Qinghua up to Yue Qingyuan
 SELECT * FROM profiles
 WHERE id BETWEEN 0 AND 6;
+
+-- will return data in alphabetical order of lastName name for everyone except the disciples
+SELECT lastName, firstName FROM profiles
+WHERE userId BETWEEN 'PEAKLORD01' AND 'USER02' 
+ORDER BY lastName;
 ```
 
-| products |
+```products table```
 | uuid | product_code | product_category | product_name | price | qty |
 | ---- | ------------ | ---------------- | ------------ | ----- | --- |
 | DH02 | HFGJ664DSKOP | Headphones | Fifine H6 USB Dynamic RGB Gaming Headphones | 1560 | 99 |
@@ -151,9 +164,77 @@ WHERE id BETWEEN 0 AND 6;
 | DH02 | MIPS664DSKOP | Cameras | Logitech StreamCam Full HD 1080p USB Webcam | 5757 | 99 |
 | DH02 | RJSN664DSKOP | Cameras | OBSBOT Meet 2 AI-Powered 4K Webcam | 7500 | 99 |
 | DH02 | 98SA664DSKOP | Storage | Western Digital WD My Passport Slim External HDD Storage | 3780 | 99 |
+| DH02 | NULL | Storage | (OUT OF STOCK) Kingston USB Flash Drive 2TB | NULL | NULL
 | DH02 | MABS664DSKOP | Printers | Epson EcoTank L5290 WiFi All in One Ink Tank Printer | 14030 | 99 |
 
-## SELECT DISTINCT
+### SELECT DISTINCT and SELECT COUNT(DISTINCT)
+```SELECT DISTINCT``` is used to return unique only values, same with ```SELECT COUNT(DISTINCT)```.
+
+```sql
+-- will return [ Headphones, Microphones, Cameras, Storage, Printers ] 
+SELECT DISTINCT product_category FROM products;
+
+-- will return 5
+SELECT COUNT(DISTINCT) product_category FROM products;
+```
+
+### Sort Data using ORDER BY
+```sql
+-- sorts by ascending by default, add DESC at the end to signify descending order
+SELECT * FROM products ORDER BY price; 
+
+-- sorts alphabetical
+SELECT * FROM products ORDER BY product_code DESC;
+```
+
+### Pagination using LIMIT
+```sql
+-- returns the first 5 results 
+SELECT * FROM products LIMIT 5;
+
+-- returns 5 results, starting from the 11th record
+SELECT * FROM products LIMIT 5 OFFSET 10;
+```
+
+### Numeric column functions: MIN, MAX, COUNT, SUM, AVG
+```sql
+-- returns the smallest value
+SELECT MIN(price) FROM products;
+
+-- returns the largest value
+SELECT MAX(price) FROM products;
+
+-- returns the number of entries excluding NULL values
+SELECT COUNT(product_code) FROM products;
+
+-- returns the total sum excluding NULL values
+SELECT SUM(qty) FROM products;
+
+-- returns the average excluding NULL values
+SELECT AVG(price) FROM products;
+
+-- returns the average price with the decimals rounded off to 2 digits
+SELECT AVG(price)::NUMERIC(10,2) FROM products;
+-- i'm guessing the 10 is for base 10 while 2 is the round off for decimal
+```
+
+### Aliases
+```sql
+SELECT productCode AS code FROM products;
+
+-- can skip the AS keyword actually but i prefer to keep it for readability
+SELECT productCode code FROM products;
+
+-- can combine column values using || and even format them
+-- this one will return "Qi Qinggi"
+SELECT lastName || ' ' || firstName AS fullName FROM profiles WHERE userId = 'PEAKLORD02';
+
+-- this one will return "HFGJ664DSKOP - Fifine H6 USB Dynamic RGB Gaming Headphones"
+SELECT product_code || ' - ' || product_name AS product FROM products WHERE product_code = 'HFGJ664DSKOP';
+
+-- can also use a string as an alias
+SELECT product_name AS "My Products" FROM products;
+```
 
 ## JOIN
 
