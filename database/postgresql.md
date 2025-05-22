@@ -48,7 +48,14 @@ DROP TABLE profiles;
 INSERT INTO profiles (userId, firstName, lastName)
 VALUES
 	('USER01', 'Qinghua', 'Shang'), 
-	('USER02', 'Yuan', 'Shen');
+	('USER02', 'Yuan', 'Shen'),
+	('DISCIPLE01', 'Binghe', Luo'),
+	('DISCIPLE02', 'Yingying', Ning'),
+	('DISCIPLE03', 'Fan', Ming'),
+	('DISCIPLE04', 'Mingyan', Liu'),
+	('PEAKLORD01', 'Qingyuan', 'Yue'),
+	('PEAKLORD02', 'Qingqi', 'Qi'),
+	('PEAKLORD03', 'Qingge', 'Liu');
 ```
 
 ### Read
@@ -65,11 +72,11 @@ SELECT firstName, lastName FROM profiles;
 -- If WHERE clause is not included, all records will be updated
 UPDATE profiles
 SET username = 'airplane'
-WHERE userId = 'USER01'
+WHERE userId = 'USER01';
 
 UPDATE profiles
 SET username = 'cucumber', firstName = 'Qingqiu'
-WHERE userId = 'USER02'
+WHERE userId = 'USER02';
 ```
 
 ### Delete
@@ -80,9 +87,77 @@ WHERE userId = 'USER02';
 
 -- Delete all records
 DELETE FROM profiles;
-TRUNCATE TABLE profiles
+TRUNCATE TABLE profiles;
 -- the difference is that DELETE is logged while TRUNCATE does not, meaning you cannot roll back and get your data again when using TRUNCATE
 -- apparently TRUNCATE also resets the identity seed 
 ```
 
 # PostgreSQL Syntax
+
+## WHERE clause operators
+
+```sql
+= -- equal to
+< -- less than
+> -- greater than
+<= -- less than or equal to
+>= -- greater than or equal to
+<> -- not equal to
+!= -- not equal to
+LIKE -- (case sensitive) check if a value matches a pattern
+ILIKE -- (case insensitive) check if a value matches a pattern
+AND -- logical AND
+OR -- logical OR
+IN -- check if a value is in a defined list of values
+BETWEEN -- check if a value is in between a specified range of values
+IS NULL -- check if a value is null
+NOT -- makes a negative result, e.g. NOT LIKE, NOT IN, NOT BETWEEN
+```
+
+### LIKE and ILIKE wildcards
+Think of LIKE and ILIKE arguments as something similar to regex. You can supply an absolute value like 'Yuan', but you can also use a wildcard to define a pattern.
+
+There are two wildcards often used with the LIKE/ILIKE operator:
+- The percent sign (%) represents zero, one, or multiple characters.
+- The underscore sign (_) represents one single character.
+
+```sql
+-- will return all firstName starting with Qing
+SELECT * FROM profiles
+WHERE firstName LIKE 'Qing%';
+
+-- will return all userId from USER01 to USER09
+SELECT * FROM profiles
+WHERE userId ILIKE 'user0_';
+```
+
+### IN and BETWEEN
+```sql
+-- will return data for Luo Binghe, Ning Yingying and Ming Fan
+SELECT * FROM profiles
+WHERE firstName IN ('Binghe', 'Yingying', 'Fan');
+
+-- will return data for Shang Qinghua up to Yue Qingyuan
+SELECT * FROM profiles
+WHERE id BETWEEN 0 AND 6;
+```
+
+| uuid | product_code | product_category | product_name | price | qty |
+| ---- | ------------ | ---------------- | ------------ | ----- | --- |
+| DH02 | HFGJ664DSKOP |  | Jupiter Palette | 250 | 99 |
+| DH02 | AOPU664DSKOP | Eyeshadow | Saturn Palette | 250 | 99 |
+| DH02 | AL62664DSKOP | Lipstick | Jupiter Palette | 250 | 99 |
+| DH02 | MIPS664DSKOP | Eyeshadow | Jupiter Palette | 250 | 99 |
+| DH02 | 98SA664DSKOP | Eyeshadow | Jupiter Palette | 250 | 99 |
+
+## SELECT DISTINCT
+
+## JOIN
+
+
+
+
+
+
+
+
