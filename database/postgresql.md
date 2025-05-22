@@ -142,13 +142,16 @@ SELECT * FROM profiles
 WHERE id BETWEEN 0 AND 6;
 ```
 
+| products |
 | uuid | product_code | product_category | product_name | price | qty |
 | ---- | ------------ | ---------------- | ------------ | ----- | --- |
-| DH02 | HFGJ664DSKOP |  | Jupiter Palette | 250 | 99 |
-| DH02 | AOPU664DSKOP | Eyeshadow | Saturn Palette | 250 | 99 |
-| DH02 | AL62664DSKOP | Lipstick | Jupiter Palette | 250 | 99 |
-| DH02 | MIPS664DSKOP | Eyeshadow | Jupiter Palette | 250 | 99 |
-| DH02 | 98SA664DSKOP | Eyeshadow | Jupiter Palette | 250 | 99 |
+| DH02 | HFGJ664DSKOP | Headphones | Fifine H6 USB Dynamic RGB Gaming Headphones | 1560 | 99 |
+| DH02 | AOPU664DSKOP | Headphones | Logitech H111 Wired Stereo Business Headset | 300 | 99 |
+| DH02 | AL62664DSKOP | Microphones | Fifine F4 Plug & Play USB Mic | 969 | 99 |
+| DH02 | MIPS664DSKOP | Cameras | Logitech StreamCam Full HD 1080p USB Webcam | 5757 | 99 |
+| DH02 | RJSN664DSKOP | Cameras | OBSBOT Meet 2 AI-Powered 4K Webcam | 7500 | 99 |
+| DH02 | 98SA664DSKOP | Storage | Western Digital WD My Passport Slim External HDD Storage | 3780 | 99 |
+| DH02 | MABS664DSKOP | Printers | Epson EcoTank L5290 WiFi All in One Ink Tank Printer | 14030 | 99 |
 
 ## SELECT DISTINCT
 
