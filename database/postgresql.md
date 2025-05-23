@@ -238,7 +238,47 @@ SELECT product_name AS "My Products" FROM products;
 
 ## JOIN
 
+No matter which join you use, remember that the left table is the one declared in the FROM clause while the right table is the one declared in the JOIN clause.
 
+Left table: products
+| product_id | product_name | category_id |
+| ---------- | ------------ | ----------- |
+| 1          | Webcam       | 1           |
+| 2          | DSLR         | 1           |
+| 3          | Thermal Printer | 3        |
+| 4          | Condenser Mic   | 2        |
+
+
+Right table: categories
+| category_id | category_name |
+| ----------- | ------------- |
+| 1           | Camera        |
+| 2           | Microphone    |
+
+
+```sql
+-- Inner Join
+-- selects only the data that matches from both tables
+
+SELECT <LT column>, <RT column> FROM <left table> INNER JOIN <right table> ON <left table>.<LT column> = <right table>.<RT column>;
+SELECT product_name, category_name FROM products INNER JOIN categories ON products.category_id = categories.category_id;
+
+-- Left Join
+-- selects all data from the left table while returning only the matched ones from the right table
+SELECT product_name, category_name FROM products LEFT JOIN categories ON products.category_id = categories.category_id;
+
+-- Right Join
+-- selects all data from the right table while returning only the matched ones from the left table
+SELECT product_name, category_name FROM products RIGHT JOIN categories ON products.category_id = categories.category_id;
+
+-- Full Join
+-- selects all data from both tables, returning NULL if the records don't match
+SELECT product_name, category_name FROM products FULL JOIN categories ON products.category_id = categories.category_id;
+
+-- Cross Join
+-- matches each record from the left table with every record from the right table. i think this is used to populate tables.
+SELECT product_name, category_name FROM products CROSS JOIN categories;
+```
 
 
 
