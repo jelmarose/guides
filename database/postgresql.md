@@ -280,7 +280,14 @@ SELECT product_name, category_name FROM products FULL JOIN categories ON product
 SELECT product_name, category_name FROM products CROSS JOIN categories;
 ```
 
-
+## To study:
+- Union
+- Group By
+- Having
+- Exists
+- Any
+- All
+- Case
 
 
 
